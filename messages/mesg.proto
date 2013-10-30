@@ -1,0 +1,56 @@
+package mesg;
+
+message HeaderMesg {
+    message ElfHeaderMesg {
+        required uint64 type = 1;
+        required uint64 machine = 2;
+        required uint64 version = 3; 
+        required uint64 entry = 4; 
+        required uint64 phoff = 5; 
+        required uint64 shoff = 6; 
+        required uint64 flags = 7; 
+    
+        required uint64 ehsize = 8;
+        required uint64 phentsize = 9;
+        required uint64 phnum = 10; 
+        required uint64 shentsize = 11;
+        required uint64 shnum = 12; 
+        required uint64 shstrndx = 13; 
+    }
+
+    message SecHeaderMesg {
+        required string name = 1;
+        required uint64 type = 2;
+        required uint64 flags = 3; 
+        required uint64 addr = 4; 
+        required uint64 offset = 5; 
+        required uint64 size = 6;
+    
+        required uint64 link = 7; 
+        required uint64 info = 8; 
+        required uint64 addralign = 9;
+        required uint64 entsize = 10;
+
+		required uint64 begin = 11;
+		required uint64 end = 12;
+    }
+    
+    message ProgHeaderMesg {
+        required uint64 type = 1;
+        required uint64 offset = 2;
+        required uint64 vaddr = 3; 
+        required uint64 paddr = 4; 
+        required uint64 filesz = 5;
+        required uint64 memsz = 6; 
+        required uint64 flags = 7; 
+        required uint64 align = 8;
+
+		required uint64 begin = 9;
+		required uint64 end = 10;
+    }
+
+    required ElfHeaderMesg elfHeader = 1;
+    repeated SecHeaderMesg secHeaders = 2;
+    repeated ProgHeaderMesg progHeaders = 3;
+}
+
