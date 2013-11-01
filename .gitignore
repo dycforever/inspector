@@ -1,0 +1,6 @@
+*.[ao]
+*.ko
+*~
+cscope*
+core
+
